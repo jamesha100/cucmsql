@@ -24,3 +24,19 @@ Charlton_House Cisco 7911            david.white          SEP9CAFCAFEC763 2018-1
 Charlton_House Cisco 7911            duncan.richards      SEP0021A0D88A50 2016-11-23 16:21:25
 Charlton_House Cisco 7911            michael.agolom       SEP9CAFCAFEC7F4 2017-07-19 10:51:39
 ```
+### List Extension Mobility Profiles that are not Associated with an End User
+The SQL command below list Extension Mobility profiles that are not associated with an End User.  
+These profiles cannot be used and are likely to belong to users who have left the organisation.
+```
+run sql SELECT name FROM device d WHERE NOT EXISTS (SELECT fkdevice FROM enduserdevicemap eudm WHERE d.pkid = eudm.fkdevice) AND tkclass = '254' order by name
+
+name
+==================================================
+AS ADMIN - 5686
+Adrian Allanach - 2160
+Alice Green - 2389
+Amanda Janulis - 2189
+Amir Amini - 5879
+Andrew Boulter - 5512
+
+```

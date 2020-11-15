@@ -1,10 +1,17 @@
 # CUCM SQL Commands
+
 This Github Pages site was created to document useful SQL commands for Cisco Unified Communications Manager.  
 Most of the testing was performed on CUCM versions 11.5 and 12.5.
+
+---
 ## Extension Mobility Commands
 ### List Currently Logged In Users and Devices
-The SQL command below list
-
+The SQL command below lists the following information:
+- Device Pool
+- Device Type
+- User ID
+- Device Name
+- Login date and time (UTC)
 ```
 run sql SELECT dp.name AS devicepool, tm.name AS devicetype, eu.userid AS userid, d.name AS devicename, dbinfo('utc_to_datetime', emd.datetimestamp) AS logintime FROM extensionmobilitydynamic emd INNER JOIN enduser eu on emd.fkenduser=eu.pkid INNER JOIN device d on emd.fkdevice=d.pkid INNER JOIN typemodel tm on d.tkmodel=tm.enum INNER JOIN devicepool dp on d.fkdevicepool=dp.pkid ORDER BY dp.name,tm.name,eu.userid,d.name
 

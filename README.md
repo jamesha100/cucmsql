@@ -28,7 +28,7 @@ Charlton_House Cisco 7911            michael.agolom       SEP9CAFCAFEC7F4 2017-0
 
 ### List Extension Mobility Profiles that are not Associated with an End User
 The SQL command below list Extension Mobility profiles that are not associated with an End User.  
-These profiles cannot be used and are likely to belong to users who have left the organisation.
+These profiles cannot be used and are likely to belong to users who have left the organisation and so should be deleted.
 
 ```
 run sql SELECT name FROM device d WHERE NOT EXISTS (SELECT fkdevice FROM enduserdevicemap eudm WHERE d.pkid = eudm.fkdevice) AND tkclass = '254' order by name
@@ -41,5 +41,4 @@ Alice Green - 2389
 Amanda Janulis - 2189
 Amir Amini - 5879
 Andrew Boulter - 5512
-
 ```

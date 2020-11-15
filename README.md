@@ -1,5 +1,5 @@
 # CUCM SQL Commands
-This Github Pages site was created to document useful SQL commands for Cisco Unified Communications Manager. 
+This Github Pages site was created to document useful SQL commands for Cisco Unified Communications Manager.  
 Most of the testing was performed on CUCM versions 11.5 and 12.5.
 ## Extension Mobility Commands
 ### List Currently Logged In Users and Devices
